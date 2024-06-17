@@ -1,0 +1,62 @@
+body{
+    background-color: #ff0037;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+.squad-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.squad-header {
+    background-color: #ff0037;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.squad-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.squad-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.squad-list li:last-child {
+    border-bottom: none;
+}
+
+.squad-list li.player-name {
+    font-weight: bold;
+}
+
+.squad-list li.player-position {
+    font-size: 14px;
+    color: #666;
+}
+
+.add-player-button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-player-button:hover {
+    background-color: #3e8e41;
+}

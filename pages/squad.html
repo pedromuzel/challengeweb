@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Squad</title>
+    <link rel="stylesheet" href="../assets/squad.css">
+</head>
+<body>
+    <div class="squad-container">
+        <div class="squad-header">
+            <h1>My Squad</h1>
+        </div>
+        <ul class="squad-list" id="squad-list">
+            <!-- Squad members will be inserted here -->
+        </ul>
+        <button class="add-player-button" id="add-player-button">Adicionar jogador</button>
+
+        <div class="add-player-form" id="add-player-form">
+            <label for="player-name">Nome do PILOTO:</label>
+            <input type="text" id="player-name" value="">
+
+            <label for="player-position">EQUIPE</label>
+            <input type="text" id="player-position" value="">
+
+            <button type="submit">Adicionar PILOTO</button>
+        </div>
+    </div>
+
+
+    <div class="slideshow-container">
+        <div class="slide">
+            <img src="../assets/logo.jpg" alt="Slide 1">
+        </div>
+
+        <div class="slide">
+            <img src="../assets/nextrace.jpg" alt="Slide 2">
+        </div>
+
+        <div class="slide">
+            <img src="../assets/image.png" alt="Slide 3">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+
+    <script>
+    let slideIndex = 1;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(function(){showSlides()}, 5000); // Change image every 5 seconds
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+        const squadList = document.getElementById('squad-list');
+        const addPlayerButton = document.getElementById('add-player-button');
+        const addPlayerForm = document.getElementById('add-player-form');
+
+        // Load squad data from local storage
+        const squadData = JSON.parse(localStorage.getItem('squad'));
+
+        if (squadData) {
+            squadData.forEach((player) => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <span class="player-name">${player.name}</span>
+                    <span class="player-position">${player.position}</span>
+                `;
+                squadList.appendChild(listItem);
+            });
+        }
+
+        addPlayerButton.addEventListener('click', () => {
+            addPlayerForm.style.display = 'block';
+        });
+
+        addPlayerForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const playerName = document.getElementById('player-name').value;
+            const playerPosition = document.getElementById('player-position').value;
+
+            const newPlayer = {
+                name: playerName,
+                position: playerPosition
+            };
+
+            const squadData = JSON.parse(localStorage.getItem('squad')) || [];
+            squadData.push(newPlayer);
+            localStorage.setItem('squad', JSON.stringify(squadData));
+
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <span class="player-name">${playerName}</span>
+                <span class="player-position">${playerPosition}</span>
+            `;
+            squadList.appendChild(listItem);
+
+            addPlayerForm.style.display = 'none';
+            document.getElementById('player-name').value = '';
+            document.getElementById('player-position').value = '';
+        });
+    </script>
+</body>
+</html>

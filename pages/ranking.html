@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking</title>
+    <link rel="stylesheet" href="../assets/ranking.css">
+</head>
+<body>
+    <h1>Ranking</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Posição</th>
+                <th>Piloto</th>
+                <th>Pontos</th>
+            </tr>
+        </thead>
+        <tbody id="ranking-body">
+        </tbody>
+    </table>
+
+    <script>
+        const rankingData = [
+            { position: 1, pilot: 'Pedro', points: 10 },
+            { position: 2, pilot: 'Vitor', points: 8 },
+            { position: 3, pilot: 'Lucas', points: 5 },
+            { position: 4, pilot: 'Danilo', points: 5 },
+            { position: 5, pilot: 'Renato', points: 4 },
+            { position: 6, pilot: 'Danilo', points: 2 },
+            { position: 7, pilot: 'André', points: 0 }
+        ];
+
+        const rankingBody = document.getElementById('ranking-body');
+
+        rankingData.forEach((data, index) => {
+            const row = document.createElement('tr');
+
+            const positionCell = document.createElement('td');
+            positionCell.textContent = data.position;
+            row.appendChild(positionCell);
+
+            const pilotCell = document.createElement('td');
+            pilotCell.textContent = data.piloto;
+            row.appendChild(pilotCell);
+
+            const pointsCell = document.createElement('td');
+            pointsCell.textContent = data.points;
+            row.appendChild(pointsCell);
+
+            rankingBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>

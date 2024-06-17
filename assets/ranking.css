@@ -1,0 +1,20 @@
+body {
+    background-color: #ffffff;
+    color: #ff0037;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}       
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #a7a7a7;
+}
+
+th {
+    background-color: #dadada;
+}
