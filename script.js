@@ -1,4 +1,4 @@
-alert("Bem-vindo(a) ao FANTASY E");
+alert("Oi, seja bem-vindo(a) ao FANTASY E!");
 
 function handleCadastro(event) {
     event.preventDefault();
